@@ -1,10 +1,13 @@
-import express from "express";
-import { use } from "passport";
-import { Strategy as GoogleStrategy } from "passport-google-oauth20";
+const express = require("express");
+const passport = require("passport");
+const GoogleStrategy = require("passport-google-oauth20");
+const keys = require("./config/keys");
+
+console.log(googleCliendId);
 
 const app = express();
 
-use(new GoogleStrategy());
+passport.use(new GoogleStrategy());
 
 app.get("/", (req, res) => {
     res.send({ hello: "world" });
